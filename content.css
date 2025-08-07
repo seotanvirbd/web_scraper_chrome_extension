@@ -1,0 +1,68 @@
+/**
+ * ============================================================================
+ * UNIVERSAL WEB SCRAPER - CONTENT STYLES
+ * ============================================================================
+ * This file contains CSS styles for:
+ * - Element highlighting during selection
+ * - Visual feedback for selected elements
+ * - Tooltip display for element information
+ * - Overlay for selection mode indication
+ * ============================================================================
+ */
+
+/* ========================================================================
+   ELEMENT HIGHLIGHTING - HOVER STATE
+   Applied to elements when user hovers over them in selection mode
+   ======================================================================== */
+.web-scraper-highlight {
+  outline: 2px solid #2196f3 !important;           /* Blue border for hover */
+  outline-offset: 2px !important;                  /* Space between element and border */
+  background-color: rgba(33, 150, 243, 0.1) !important;  /* Light blue background */
+  cursor: crosshair !important;                    /* Show crosshair cursor */
+  position: relative !important;                   /* For tooltip positioning */
+}
+
+/* ========================================================================
+   ELEMENT HIGHLIGHTING - SELECTED STATE
+   Applied to elements that have been selected by the user
+   ======================================================================== */
+.web-scraper-selected {
+  outline: 2px solid #4caf50 !important;           /* Green border for selected */
+  outline-offset: 2px !important;                  /* Space between element and border */
+  background-color: rgba(76, 175, 80, 0.1) !important;   /* Light green background */
+}
+
+/* ========================================================================
+   TOOLTIP DISPLAY
+   Shows information about the element being hovered over
+   ======================================================================== */
+.web-scraper-tooltip {
+  position: absolute;                               /* Position relative to cursor */
+  background: #333;                                 /* Dark background */
+  color: white;                                     /* White text */
+  padding: 4px 8px;                                /* Internal spacing */
+  border-radius: 4px;                              /* Rounded corners */
+  font-size: 12px;                                 /* Small readable text */
+  font-family: monospace;                          /* Monospace for CSS selectors */
+  z-index: 10000;                                  /* Always on top */
+  pointer-events: none;                            /* Don't interfere with mouse */
+  white-space: nowrap;                             /* Keep text on one line */
+  max-width: 300px;                                /* Maximum width */
+  overflow: hidden;                                /* Hide overflow */
+  text-overflow: ellipsis;                         /* Show ... for long text */
+}
+
+/* ========================================================================
+   SELECTION MODE OVERLAY
+   Subtle overlay to indicate that selection mode is active
+   ======================================================================== */
+.web-scraper-overlay {
+  position: fixed;                                 /* Cover entire viewport */
+  top: 0;                                          /* Start from top */
+  left: 0;                                         /* Start from left */
+  width: 100%;                                     /* Full width */
+  height: 100%;                                    /* Full height */
+  background: rgba(0, 0, 0, 0.05);                /* Very light dark overlay */
+  z-index: 9999;                                  /* Below tooltip but above content */
+  pointer-events: none;                           /* Don't block interactions */
+}

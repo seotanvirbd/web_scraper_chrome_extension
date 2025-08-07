@@ -1,0 +1,71 @@
+{
+  // ==================================================
+  // EXTENSION METADATA
+  // Basic information about the extension
+  // ==================================================
+  "manifest_version": 3,
+  "name": "1-Claude Universal Web Scraper",
+  "version": "1.0.0",
+  "description": "Scrape data from any webpage with point-and-click interface and export to CSV, JSON, or Excel",
+  
+  // ==================================================
+  // PERMISSIONS
+  // What the extension is allowed to do
+  // ==================================================
+  "permissions": [
+    "activeTab",    // Access to currently active tab
+    "storage",      // Store user selections and data locally
+    "scripting",    // Inject content scripts into web pages
+    "downloads",     // Download files to user's computer
+    "windows"     
+  ],
+  
+  // ==================================================
+  // HOST PERMISSIONS
+  // Which websites the extension can access
+  // ==================================================
+  "host_permissions": [
+    "<all_urls>"    // Access all websites (needed for universal scraping)
+  ],
+  
+  // ==================================================
+  // BACKGROUND SCRIPT
+  // Handles extension lifecycle and cross-tab communication
+  // ==================================================
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  // ==================================================
+  // CONTENT SCRIPTS
+  // Scripts that run on web pages to enable scraping
+  // ==================================================
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],           // Run on all websites
+      "js": ["content.js"],                // JavaScript for element selection
+      "css": ["content.css"],              // Styles for highlighting elements
+      "run_at": "document_end"             // Load after page content is ready
+    }
+  ],
+  
+  // ==================================================
+  // POPUP INTERFACE
+  // The main UI that appears when clicking the extension icon
+  // ==================================================
+  "action": {
+    "default_popup": "popup.html",         // Main interface file
+    "default_title": "Universal Web Scraper"
+  },
+  
+  // ==================================================
+  // WEB ACCESSIBLE RESOURCES
+  // Files that web pages can access (if needed)
+  // ==================================================
+  "web_accessible_resources": [
+    {
+      "resources": ["*.js", "*.css"],     // Allow access to JS and CSS files
+      "matches": ["<all_urls>"]           // From all websites
+    }
+  ]
+}

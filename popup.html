@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🕷️ Samira Web Scraper</h1>
+    
+    <!-- Status Display -->
+    <div id="status-bar" class="status-bar">
+      <span id="status-text">Ready to scrape</span>
+    </div>
+    
+    <!-- Mode Selection -->
+    <div class="section">
+      <h3>Scraping Mode</h3>
+      <div class="button-group">
+        <button id="select-mode" class="btn btn-primary">
+          🎯 Select Elements
+        </button>
+        <button id="css-mode" class="btn btn-secondary">
+          📝 Manual Input
+        </button>
+      </div>
+    </div>
+    
+    <!-- Manual Selector Input -->
+    <div id="css-input-section" class="section hidden">
+      <h3>Add Selector Manually</h3>
+      <div class="form-group">
+        <label>Column Name:</label>
+        <input type="text" id="column-name" placeholder="e.g., Product Title">
+      </div>
+      <div class="form-group">
+        <label>Selector Type:</label>
+        <select id="selector-type">
+          <option value="css">CSS Selector</option>
+          <option value="xpath">XPath</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Selector:</label>
+        <input type="text" id="css-selector" placeholder="e.g., .product-title or //div[@class='title']">
+      </div>
+      <div class="button-group">
+        <button id="test-selector" class="btn btn-sm btn-secondary">Test</button>
+        <button id="add-selector" class="btn btn-sm btn-primary">Add</button>
+      </div>
+    </div>
+    
+    <!-- Selected Elements Display -->
+    <div id="elements-section" class="section">
+      <h3>Selected Elements (<span id="element-count">0</span>)</h3>
+      <div id="elements-list" class="elements-list"></div>
+      <button id="clear-selections" class="btn btn-danger btn-sm">Clear All</button>
+    </div>
+    
+    <!-- Scraping Actions -->
+    <div id="scraping-section" class="section">
+      <h3>Scrape Data</h3>
+      <div class="button-group">
+        <button id="scrape-data" class="btn btn-success">🔍 Scrape Data</button>
+        <button id="refresh-preview" class="btn btn-secondary btn-sm">🔄 Refresh</button>
+      </div>
+    </div>
+    
+    <!-- Preview Section -->
+    <div id="preview-section" class="section">
+      <h3>Data Preview (<span id="data-count">0</span> rows)</h3>
+      <div id="preview-data" class="preview-container">
+        <p class="placeholder">Click "Scrape Data" to see preview</p>
+      </div>
+    </div>
+    
+    <!-- Export Section -->
+    <div id="export-section" class="section">
+      <h3>Export Data</h3>
+      <div class="button-group">
+        <button id="export-csv" class="btn btn-success" disabled>📊 CSV</button>
+        <button id="export-json" class="btn btn-success" disabled>📋 JSON</button>
+        <button id="export-xlsx" class="btn btn-success" disabled>📈 Excel</button>
+      </div>
+      <div class="form-group">
+        <input type="text" id="filename" placeholder="Filename (optional)" value="scraped-data">
+      </div>
+    </div>
+    
+    <!-- Progress Bar -->
+    <div id="progress-section" class="section hidden">
+      <div class="progress-bar">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+      <div id="progress-text">Processing...</div>
+    </div>
+    
+    <!-- Help Section -->
+
+  
+  <script src="popup.js"></script>
+</body>
+</html>
